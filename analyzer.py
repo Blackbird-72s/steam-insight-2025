@@ -10,7 +10,7 @@ from openai import OpenAI
 # =======================================================
 # 🔧 配置区域
 # =======================================================
-DEEPSEEK_API_KEY = "sk-b23cfb6833384f82813d134b030d98c9" 
+DEEPSEEK_API_KEY = st.secrets.get("DEEPSEEK_API_KEY", "")
 BASE_URL = "https://api.deepseek.com"
 
 # =======================================================
@@ -450,4 +450,5 @@ def run(df, game_name="通用游戏"):
                     <div style="font-size:14px; color:#86868B; margin-bottom:10px; font-weight:600;">🤖 AI 咨询报告：{user_query}</div>
                     <div style="font-size:16px; color:#1D1D1F; line-height:1.8; white-space: pre-wrap;">{rag_response}</div>
                 </div>
+
                 """, unsafe_allow_html=True)
